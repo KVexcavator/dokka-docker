@@ -32,4 +32,11 @@ app.get("/test", (req, res)=>{
   res.send("Ohhuitelniy project")
 })
 
-connectDB(startServer)
+
+new Promise((resolve, reject) => {
+  connectDB()
+  resolve()
+})
+  .then(() => {
+    startServer()
+  })
