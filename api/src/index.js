@@ -11,7 +11,7 @@ const Post = mongoose.model('Post', postSchema);
 
 const startServer = () => {
   app.listen(port, ()=>{
-    console.log(`Started dokka on port:${port}!`)
+    console.log(`Started dokka-api on port:${port}!`)
     console.log(`On host:${host}`)
     console.log(`Our database:${db}`)
 
@@ -29,7 +29,7 @@ const startServer = () => {
 }
 
 app.get("/test", (req, res)=>{
-  res.send("Ohhuitelniy project")
+  res.send("API server is working!")
 })
 
 

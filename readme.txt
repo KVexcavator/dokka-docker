@@ -49,3 +49,10 @@ update packege.json with "dev"
 add config nodemon.json
 $ docker compose -f docker-compose.yml -f docker-compose.development.yml up --build
 =================================
+13
+copy all from api to auth and update
+$ docker ps
+$ docker logs dokka-docker-auth
+localhost:3000/test
+localhost:3001/test
+==================================
