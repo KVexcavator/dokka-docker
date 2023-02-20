@@ -28,3 +28,24 @@ http://localhost:3000/test
 ======================================
 commit
 =====================================
+docker-compose << restart, enviroment
+сбилдит компосу, если было обновление
+docker compose up --build
+cd api
+npm install mongoose
+add helpers/db.js
+=====================================
+12
+add volume to docker-compose
+$ docker volume
+list all volumes
+$ docker volume list
+add docker-compose.development.yml
+write only chenged line
+add spetial volume to development
+for save development volumes
+$ npm install modemon
+update packege.json with "dev"
+add config nodemon.json
+$ docker compose -f docker-compose.yml -f docker-compose.development.yml up --build
+=================================

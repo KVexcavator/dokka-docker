@@ -34,9 +34,9 @@ app.get("/test", (req, res)=>{
 
 
 new Promise((resolve, reject) => {
-  connectDB()
-  resolve()
-})
+    connectDB()
+    resolve()
+  })
   .then(() => {
     startServer()
   })
