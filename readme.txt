@@ -74,3 +74,9 @@ sudo npm install -g serve
 обновил компосы для проды и дева
 запуск дев режима
 docker compose -f docker-compose.yml -f docker-compose.development.yml up --build
+=============================
+16
+docker ps
+docker exec -it dokka-docker-api echo "Foo"
+docker exec -it dokka-docker-api echo sh
+===============================
