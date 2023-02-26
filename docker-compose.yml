@@ -3,15 +3,10 @@ services:
   frontend:
     build: ./frontend
     container_name: dokka-docker-frontend
-    command: npm start #run dev server for test
+    command: serve -s build -l 3000
     ports:
       - "3000:3000"
     restart: unless-stopped
-    stdin_open: true
-    tty: true
-    volumes:
-      - ./frontend/src:/usr/src/app/src
-
   api:
     build: ./api
     container_name: dokka-docker-api

@@ -61,3 +61,16 @@ localhost:3001/test
 $ npm init react-app frontend
 настроил Dockerfile и docker-compose для frontend
 ===================================
+15
+cd frontend
+без докера запуск на севере
+npm run build
+sudo npm install -g serve
+serve -s build
+serve -s build -l 5000 # на порту
+с долером надо добавить в докер run
+npm run build
+sudo npm install -g serve
+обновил компосы для проды и дева
+запуск дев режима
+docker compose -f docker-compose.yml -f docker-compose.development.yml up --build
