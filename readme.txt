@@ -56,3 +56,8 @@ $ docker logs dokka-docker-auth
 localhost:3000/test
 localhost:3001/test
 ==================================
+14
+что бы правильно создалась папка frontend с проектом на react
+$ npm init react-app frontend
+настроил Dockerfile и docker-compose для frontend
+===================================

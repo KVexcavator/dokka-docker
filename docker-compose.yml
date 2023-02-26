@@ -1,14 +1,26 @@
 version: "3.9"
 services:
+  frontend:
+    build: ./frontend
+    container_name: dokka-docker-frontend
+    command: npm start #run dev server for test
+    ports:
+      - "3000:3000"
+    restart: unless-stopped
+    stdin_open: true
+    tty: true
+    volumes:
+      - ./frontend/src:/usr/src/app/src
+
   api:
     build: ./api
     container_name: dokka-docker-api
     command: npm run start
     restart: unless-stopped
     ports:
-      - "3000:3000"
+      - "3001:3001"
     environment:
-      - PORT=3000
+      - PORT=3001
       - HOST=http://dokka.com
       - MONGO_URL=mongodb://api_db:27017/api
     depends_on:
@@ -20,9 +32,9 @@ services:
     command: npm run start
     restart: unless-stopped
     ports:
-      - "3001:3001"
+      - "3002:3002"
     environment:
-      - PORT=3001
+      - PORT=3002
       - HOST=http://dokka.com
       - MONGO_URL=mongodb://auth_db:27017/auth
     depends_on:
