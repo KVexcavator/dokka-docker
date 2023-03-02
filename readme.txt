@@ -92,3 +92,5 @@ and add 127.0.0.1 http://dokka-docker.com/
 go to http://dokka-docker.com/
 ====================================
 18
+add url to auth
+localhost:3002/api/currentUser

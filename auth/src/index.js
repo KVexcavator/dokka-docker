@@ -15,6 +15,12 @@ app.get("/test", (req, res)=>{
   res.send("Auth server is working!!!")
 })
 
+app.get("/api/currentUser", (req, res) => {
+  res.json({
+    id: "333",
+    email: "user@barmaley.com"
+  })
+})
 
 new Promise((resolve, reject) => {
     connectDB()
