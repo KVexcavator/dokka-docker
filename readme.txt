@@ -94,3 +94,5 @@ go to http://dokka-docker.com/
 18
 add url to auth
 localhost:3002/api/currentUser
+add url to api
+add env api/src/configuration/

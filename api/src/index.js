@@ -1,7 +1,7 @@
 const express = require('express')
 const mongoose = require('mongoose')
 const { connectDB } = require('./helpers/db')
-const {host, port, db} = require('./configuration/index')
+const {host, port, db, authApiUrl} = require('./configuration/index')
 const app = express()
 
 const postSchema = new mongoose.Schema({
@@ -30,6 +30,17 @@ const startServer = () => {
 
 app.get("/test", (req, res)=>{
   res.send("API server is working!")
+})
+
+app.get("/test", (req, res)=>{
+  res.send("API server is working!")
+})
+
+app.get("/testwithcurrentuser", (req, res) =>{
+  console.log( 'authApiUrl: ', authApiUrl)
+  res.json({
+    testwithcurrentuser: true
+  })
 })
 
 
