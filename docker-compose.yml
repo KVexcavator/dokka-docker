@@ -8,6 +8,8 @@ services:
     # ports:
     #   - "3000:3000"
     restart: unless-stopped
+    networks:
+      - dokka-docker-network
   api:
     build: ./api
     container_name: dokka-docker-api
@@ -22,6 +24,8 @@ services:
       - AUTH_API_URL=http://auth:3002/api
     depends_on:
       - api_db
+    networks:
+      - dokka-docker-network
 
   auth:
     build: ./auth
@@ -34,20 +38,27 @@ services:
       - PORT=3002
       - HOST=http://dokka.com
       - MONGO_URL=mongodb://auth_db:27017/auth
+      - API_URL=http://api:3001/api
     depends_on:
       - auth_db
+    networks:
+      - dokka-docker-network
 
   api_db:
     image: mongo:6.0.4-jammy
     container_name: dokka-docker-api-db
     volumes:
       - mongo_api:/data/db
+    networks:
+      - dokka-docker-network
 
   auth_db:
     image: mongo:6.0.4-jammy
     container_name: dokka-docker-auth-db
     volumes:
       - mongo_auth:/data/db
+    networks:
+      - dokka-docker-network
 
   nginx:
     image: nginx:stable-alpine
@@ -58,7 +69,13 @@ services:
       - ./nginx/nginx.conf.prod:/etc/nginx/conf.d/nginx.conf
     depends_on:
       - frontend
+    networks:
+      - dokka-docker-network
 
 volumes:
   mongo_api:
   mongo_auth:
+
+networks:
+  dokka-docker-network:
+    driver: bridge # defaulted

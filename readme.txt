@@ -102,3 +102,14 @@ how add npm
 cd api
 npm install axios
 http://auth:3002/api/currentUser
+=====================================
+19
+add api url to auth compose
+cd api and npm install axios and cd ..
+add url to api and add url to auth
+add env to auth/configuration/
+to get help command network:
+$ docker network
+$ docker network ls
+add description network to compose
+========================================
