@@ -80,3 +80,15 @@ docker ps
 docker exec -it dokka-docker-api echo "Foo"
 docker exec -it dokka-docker-api echo sh
 ===============================
+17
+add nginx service to docker-compose
+check port command:
+$ cat /etc/services
+$ grep -w 80 /etc/services
+add folder nginx and nginx.conf.prod file insert
+$ docker logs dokka-docker-nginx
+$ nano etc/hosts
+and add 127.0.0.1 http://dokka-docker.com/
+go to http://dokka-docker.com/
+====================================
+18

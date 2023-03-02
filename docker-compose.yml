@@ -4,8 +4,9 @@ services:
     build: ./frontend
     container_name: dokka-docker-frontend
     command: serve -s build -l 3000
-    ports:
-      - "3000:3000"
+    # not need with nginx
+    # ports:
+    #   - "3000:3000"
     restart: unless-stopped
   api:
     build: ./api
@@ -46,6 +47,16 @@ services:
     container_name: dokka-docker-auth-db
     volumes:
       - mongo_auth:/data/db
+
+  nginx:
+    image: nginx:stable-alpine
+    container_name: dokka-docker-nginx
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx/nginx.conf.prod:/etc/nginx/conf.d/nginx.conf
+    depends_on:
+      - frontend
 
 volumes:
   mongo_api:
