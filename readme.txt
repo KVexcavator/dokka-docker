@@ -96,3 +96,9 @@ add url to auth
 localhost:3002/api/currentUser
 add url to api
 add env api/src/configuration/
+add env to api compose
+
+how add npm
+cd api
+npm install axios
+http://auth:3002/api/currentUser

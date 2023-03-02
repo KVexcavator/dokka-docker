@@ -1,5 +1,6 @@
 const express = require('express')
 const mongoose = require('mongoose')
+const axios = require('axios')
 const { connectDB } = require('./helpers/db')
 const {host, port, db, authApiUrl} = require('./configuration/index')
 const app = express()
@@ -32,14 +33,12 @@ app.get("/test", (req, res)=>{
   res.send("API server is working!")
 })
 
-app.get("/test", (req, res)=>{
-  res.send("API server is working!")
-})
-
-app.get("/testwithcurrentuser", (req, res) =>{
-  console.log( 'authApiUrl: ', authApiUrl)
-  res.json({
-    testwithcurrentuser: true
+app.get("/testwithcurrentuser", (req, res) => {
+  axios.get(authApiUrl + "/currentUser").then(response => {
+    res.json({
+      testwithcurrentuser: true,
+      currentUserFromAuth: response.data
+    })
   })
 })
 
