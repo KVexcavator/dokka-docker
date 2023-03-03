@@ -113,3 +113,7 @@ $ docker network
 $ docker network ls
 add description network to compose
 ========================================
+20 проксирование фронтенда
+для фронта, что бы обойти cors лнчше добавить локацию в nginx
+и схлопнуть url
+rewrite ^/api/(.*)$1 break;
