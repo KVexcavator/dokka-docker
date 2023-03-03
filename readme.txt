@@ -117,3 +117,6 @@ add description network to compose
 для фронта, что бы обойти cors лнчше добавить локацию в nginx
 и схлопнуть url
 rewrite ^/api/(.*)$1 break;
+добавить npm:
+cd frontend
+npm install axios
