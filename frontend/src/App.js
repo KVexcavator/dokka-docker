@@ -14,7 +14,7 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          <p>Dev mode</p>
+          <p>Check dev mode</p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
         <a

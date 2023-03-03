@@ -1,7 +1,9 @@
 version: "3.9"
 services:
   frontend:
-    build: ./frontend
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile.prod
     container_name: dokka-docker-frontend
     command: serve -s build -l 3000
     # not need with nginx
@@ -15,8 +17,8 @@ services:
     container_name: dokka-docker-api
     command: npm run start
     restart: unless-stopped
-    ports:
-      - "3001:3001"
+    # ports:
+    #   - "3001:3001"
     environment:
       - PORT=3001
       - HOST=http://dokka.com
@@ -32,8 +34,8 @@ services:
     container_name: dokka-docker-auth
     command: npm run start
     restart: unless-stopped
-    ports:
-      - "3002:3002"
+    # ports:
+    #   - "3002:3002"
     environment:
       - PORT=3002
       - HOST=http://dokka.com
@@ -61,7 +63,7 @@ services:
       - dokka-docker-network
 
   nginx:
-    image: nginx:stable-alpine
+    image: nginx:1.23.3-alpine
     container_name: dokka-docker-nginx
     ports:
       - "80:80"
@@ -69,6 +71,8 @@ services:
       - ./nginx/nginx.conf.prod:/etc/nginx/conf.d/nginx.conf
     depends_on:
       - frontend
+      - api
+      - auth
     networks:
       - dokka-docker-network
 
